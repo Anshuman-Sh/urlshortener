@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+    <link rel="stylesheet" href="auth.styles.css" />
+  </head>
+  <body>
+    <div class="form-div">
+      <% if (locals.error) { %>
+      <p class="errorClass">
+        <span style="font-size: 20px">&#10071; </span><%= error %>
+      </p>
+      <% } %>
+      <form action="/login" method="post" class="form">
+        <h1>Login</h1>
+        <input type="email" name="email" placeholder="Email Address" required />
+        <input
+          type="password"
+          name="password"
+          placeholder="Password"
+          required
+        />
+        <button>Login</button>
+        <p>
+          Don't have an account yet?
+          <a
+            href="http://localhost:5000/signup"
+            style="text-decoration: none; color: rgb(219, 155, 155)"
+            >Create Account</a
+          >
+        </p>
+      </form>
+    </div>
+  </body>
+</html>

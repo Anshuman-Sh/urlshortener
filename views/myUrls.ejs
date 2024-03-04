@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>URLShortener</title>
+    <link rel="stylesheet" href="allurls.css" />
+  </head>
+  <body>
+    <nav>
+      <a href="/">Home</a>
+      <a href="http://localhost:5000/logout">Logout</a>
+    </nav>
+    <% if (locals.urls) { %>
+    <div class="table-data">
+      <table>
+        <thead>
+          <th>SR No</th>
+          <th>Original URL</th>
+          <th>ShortURL</th>
+          <th>RedirectURL</th>
+          <th>Visitors</th>
+        </thead>
+        <tbody>
+          <% urls.forEach((url, index) => { %>
+          <tr>
+            <td><%= index + 1 %></td>
+            <td><%= url.redirectUrl %></td>
+            <td><%= url.shortUrl %></td>
+            <td>
+              <a
+                href="http://localhost:5000/url/<%= url.shortUrl %>"
+                style="color: rgb(250, 75, 75)"
+                target="_blank"
+                >Server/<%= url.shortUrl %></a
+              >
+            </td>
+            <td><%= url.visitors.length %></td>
+          </tr>
+          <% }) %>
+        </tbody>
+      </table>
+    </div>
+    <% } %>
+  </body>
+</html>

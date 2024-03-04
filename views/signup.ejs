@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Signup</title>
+    <link rel="stylesheet" href="auth.styles.css" />
+  </head>
+  <body>
+    <div class="form-div">
+      <% if (locals.error) { %>
+      <p class="errorClass"><span style="font-size: 20px">&#10071;</span><%= error %></p>
+      <% } %>
+      <form action="/signup" method="post" class="form" enctype="multipart/form-data">
+        <h1>Signup</h1>
+        <input type="file" name="file" id="profileImage">
+        <input type="text" name="firstName" placeholder="First Name" required />
+        <input type="text" name="lastName" placeholder="LastName" required />
+        <input type="email" name="email" placeholder="Email Address" required />
+        <input
+          type="password"
+          name="password"
+          placeholder="Password"
+          required
+        />
+        <button type="submit">Signup</button>
+        <p>
+          Already have an account?
+          <a
+            href="http://localhost:5000/login"
+            style="text-decoration: none; color: rgb(219, 155, 155)"
+            >Login</a
+          >
+        </p>
+      </form>
+    </div>
+  </body>
+</html>

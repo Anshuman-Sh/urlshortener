@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>URLShortener</title>
+    <link rel="stylesheet" href="home.css" />
+  </head>
+  <body>
+    <nav>
+      <a href="/">Home</a>
+      <a href="http://localhost:5000/allurls">My urls</a>
+      <a href="http://localhost:5000/logout">Logout</a>
+      <% if (locals.user) { %>
+      <a><img
+          src="<%= user.profileImage %>"
+          alt="profileImage"
+          
+      /></a>
+      <% } %>
+    </nav>
+    <div class="container">
+      <h2 class="header">Generate Short URLs.......</h2>
+      <form action="/shortUrl" method="post" class="urlGenerateForm">
+        <label for="redirectUrl">Enter your url: </label>
+        <input
+          type="text"
+          placeholder="https://www.example.com"
+          name="redirectUrl"
+          required
+        />
+        <button type="submit">Generate</button>
+      </form>
+    </div>
+  </body>
+</html>

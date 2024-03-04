@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Error</title>
+    <style>
+      .error-div {
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        padding: 1rem;
+      }
+
+      .error-span {
+        height: 10px;
+        padding: 1rem;
+        color: red;
+        border: 2px solid palevioletred;
+        border-radius: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <% if (locals.error) { %>
+    <div class="error-div"><span class="error-span"><%= error %></span></div>
+    <% } %>
+  </body>
+</html>
